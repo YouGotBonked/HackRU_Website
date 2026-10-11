@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 import axios from 'axios';
-import { ChangeEvent, useState, useRef, React } from 'react';
+import { useState } from 'react';
 import useSkinVerify from '../components/API.jsx';
-import './Upload.css'
+import './Upload.css';
 
 
 
