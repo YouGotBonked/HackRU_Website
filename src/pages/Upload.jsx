@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useSkinVerify from '../components/API.jsx';
 import './Upload.css';
 
@@ -15,24 +15,44 @@ const Upload = () => {
 
     const skinVerify = useSkinVerify();
     const [selectedFile, setSelectedFile] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
     const [fileUploaded, setFileUploaded] = useState(false);
     const [results, setResults] = useState(null);
     const [showConsent, setShowConsent] = useState(false);
 
+    // Build a preview URL whenever the selected file changes,
+    // and free it when the file changes again or the component unmounts
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreviewUrl(null);
+            return;
+        }
+        const url = URL.createObjectURL(selectedFile);
+        setPreviewUrl(url);
+        return () => URL.revokeObjectURL(url);
+    }, [selectedFile]);
+
     const onFileChange = (event) => {
         const temp = event.target.files[0];
-        if (temp) {
-            if (temp.type.includes('image')) {
-                setSelectedFile(temp);
-            } else {
-                alert("Incorrect File Type, Please Upload an Image");
-                event.target.value = null;
-                setSelectedFile(null);
-            }
+
+        // Clear any previous results when the file changes
+        setResults(null);
+        setFileUploaded(false);
+
+        if (!temp) {
+            setSelectedFile(null);
+            return;
+        }
+
+        if (temp.type.startsWith('image/')) {
+            setSelectedFile(temp);
+        } else {
+            alert("Incorrect File Type, Please Upload an Image");
+            event.target.value = null;
+            setSelectedFile(null);
         }
     };
 
-    // Clicking "Upload!" only opens the consent popup
     const onUploadClick = () => {
         if (!selectedFile) {
             alert("Please select an image first.");
@@ -86,10 +106,20 @@ const Upload = () => {
                 <p>3. Upload your photo and see your results!</p>
             </div>
             <h1 className="text-center">Upload Your Cells</h1>
-            <div className="upload-actions">
-                <input type="file" onChange={onFileChange} className="minimal-input" />
-                <button onClick={onUploadClick} className="minimal-btn">Upload!</button>
+
+            <div className="upload-row">
+                <div className="upload-actions">
+                    <input type="file" accept="image/*" onChange={onFileChange} className="minimal-input" />
+                    <button onClick={onUploadClick} className="minimal-btn">Upload!</button>
+                </div>
+
+                {previewUrl && (
+                    <div className="image-preview">
+                        <img src={previewUrl} alt="Selected upload preview" />
+                    </div>
+                )}
             </div>
+
             <div className="file-data-wrapper">
                 {fileUploaded && fileData()}
             </div>
