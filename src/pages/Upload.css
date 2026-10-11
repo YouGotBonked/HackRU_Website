@@ -65,3 +65,26 @@
     padding: 2vw;
     font-size: 1.5vw;
 }
+
+.consent-popup {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: min(90%, 460px);
+    padding: 16px 20px;
+    background: #fff;
+    color: #222;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.consent-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
