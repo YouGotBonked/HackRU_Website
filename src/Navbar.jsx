@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import './Navbar.css';
 
 export default function Navbar() {
-    const [darkMode, setDarkMode] = useState(false);
-
-    useEffect(() => {
-        if(darkMode)
-            document.body.classList.add('dark-mode');
-        else
-            document.body.classList.remove('dark-mode');
-    }, [darkMode]);
 
     return (
         <nav>
@@ -21,8 +13,8 @@ export default function Navbar() {
                 Upload
             </Link>
             <div className="nav-right">
-                <div className="dark-mode-toggle" onClick={() => setDarkMode(!darkMode)}>
-                    {darkMode ? "☀️" : "🌙"}
+                <div className="nav-logo">
+                    DermaML
                 </div>
             </div>
         </nav>

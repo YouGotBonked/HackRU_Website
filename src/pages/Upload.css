@@ -1,0 +1,67 @@
+.upload-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+}
+
+.minimal-input {
+    font-family: inherit;
+    background-color: whitesmoke;
+    color: black;
+    border: 1px dashed grey;
+    border-radius: 8px;
+    padding: 1vw;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.minimal-input::file-selector-button {
+    background-color: transparent;
+    color: black;
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    padding: 0.5vw 0.6vw;
+    margin-right: 3vw;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.minimal-input:hover {
+    border-color: black;
+}
+
+.minimal-btn {
+    background-color: #22232e;
+    color: white;
+    border: 1.5px solid whitesmoke;
+    border-radius: 6px;
+    padding: 1.5vw 2.5vw;
+    font-size: 1vw;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.minimal-btn:hover {
+    background-color: #88889a;
+}
+
+.minimal-btn:active {
+    transform: scale(0.98);
+}
+
+.file-data-wrapper {
+    text-align: center;
+    padding: 2vw;
+    border-top: 1px solid whitesmoke;
+    margin-top: 2vw;
+}
+
+.guide{
+    text-align: center;
+    padding: 2vw;
+    font-size: 1.5vw;
+}

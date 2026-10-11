@@ -1,17 +1,17 @@
 body {
+    background-image: linear-gradient(to right, #6f6f7a, #41425c);
+    color: whitesmoke;
     margin: 0;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
-body.dark-mode {
-    background-color: #171717;
-    color: whitesmoke;
-}
+
 nav {
     margin: 0;
     display: flex;
     align-items: center;
     padding-left: 0;
-    background-color: black;
+    background-color: #4e5063;
+    border-bottom: 2px solid whitesmoke;
 }
 
 .nav-item {
@@ -23,7 +23,7 @@ nav {
     transition: all 0.2s ease-in-out;
 }
 .nav-item:hover {
-    background-color: white;
+    background-color: #797c9c;
     color: black;
 }
 
@@ -31,10 +31,8 @@ nav {
     margin-left: auto;
 }
 
-.dark-mode-toggle {
+.nav-logo {
+    padding: 1vw;
     font-size: 2.5vw;
-
-}
-.dark-mode-toggle:hover {
-    cursor: pointer;
+    font-weight: 300;
 }
