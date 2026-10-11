@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DermaML/static/css/main.45067607.css",
+    "main.js": "/DermaML/static/js/main.93ea341c.js",
+    "index.html": "/DermaML/index.html",
+    "main.45067607.css.map": "/DermaML/static/css/main.45067607.css.map",
+    "main.93ea341c.js.map": "/DermaML/static/js/main.93ea341c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45067607.css",
+    "static/js/main.93ea341c.js"
+  ]
+}
