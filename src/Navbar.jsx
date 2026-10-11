@@ -5,7 +5,7 @@ import './Navbar.css';
 export default function Navbar() {
     return (
         <nav>
-            <Link className='nav-item' to='/'>
+            <Link className='nav-item' to='/Home'>
                 Home
             </Link>
             <Link className='nav-item' to='/Upload'>
